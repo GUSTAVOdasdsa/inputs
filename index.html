@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Personalia:</legend>
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="fname" nome="fname" ><br>
+            <label for="lname">Sobrenome:</label><br>
+            <input type="text" id="lname" name="lname" ><br><br>
+            <input id="date" type="date" /><br><br>
+            <input list="generos">
+            <datalist id="generos">
+              <option value="masculino">
+              <option value="feminino">
+                <option value="bolsonaro">
+            </datalist>
+
+
+
+            <input type="submit" value="Enviar" id="btn1">
+
+          </fieldset>
+    </form>
+
+<p class="output" id="output1"></p>
+    <script>
+
+        const form = document.querySelector('form');
+        const output = document.getElementById('output1');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); 
+
+            const nome = document.getElementById('fname').value;
+            const sobrenome = document.getElementById('lname').value;
+            const date = document.getElementById('date').value;
+            const genero = document.querySelector('input[list="generos"]').value;
+
+            // Display the values in the output element
+            output.innerHTML = `Nome: ${nome}<br>Sobrenome: ${sobrenome}<br>Data: ${date}<br>Gênero: ${genero}`;
+        });
+
+
+
+    </script>
+    
+</body>
+</html>
